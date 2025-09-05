@@ -58,6 +58,24 @@ public class Solution
         }
         return b;
     }
+
+    public static int ClimbingStairsNoExtraSpace(int n)
+    {
+        if (n < 2)
+        {
+            return n;
+        }
+        
+        int[] data = new int[n + 1];
+        data[0] = 1;
+        data[1] = 2;
+
+        for (int i = 2; i <= n; i++)
+        {
+            data[i] = data[i - 1] + data[i - 2];
+        }
+        return data[n];
+    }
 }
 
 public class Program
@@ -66,8 +84,8 @@ public class Program
     {
         //int[] weights = { 2, 3, 4 };
         //int[] values = { 3, 4, 5 };
-        int capacity = 7;
-        var ans = Solution.fibWithNoExtraSpace(capacity);
+        int capacity = 4;
+        var ans = Solution.ClimbingStairsNoExtraSpace(capacity);
 
 
 
