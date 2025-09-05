@@ -4,48 +4,59 @@ using System.Runtime.ExceptionServices;
 
 public class Solution
 {
-    public static int SolveKnapsack(int[] weights ,int[] values, int capacity)
+    public static int FibRecursion(int capacity)
     {
-        int numberOfItems = weights.Length;
-        //store the results 
-        int[,] data = new int[numberOfItems  + 1, capacity + 1];
-        for (int i = 1; i <= numberOfItems; i++)
+        //Fibonacci
+        //nth item is the sum of n - 1 and n - 2 item
+        //0 1 1 2 3 5 8 13
+        if (capacity <= 1)
         {
-            for (int currweight = 0; currweight <= capacity; currweight++)
-            {
-                //i = 0 means 0 items allowed
-                //currweight = 0 means no weight allowed in the bag so far
-                if (i == 0 || currweight == 0)
-                {
-                    data[i, currweight] = 0;
-                }
-                //if weight of the item is greater then the current allowed weight we skip it and take the best value without that item 
-                //for that weight 
-                else if (weights[i - 1] >  currweight)
-                {
-                    //ignore the current 
-                    data[i, currweight] = data[i - 1, currweight];
-                }
-                else
-                {
-                    //take current item and in the same row for the items take the weight of 
-                    int TakeCurrentVal = values[i - 1] + data[i, currweight - weights[i - 1]];
-                    //like before
-                    int SkipCurrentVal = data[i - 1, currweight];
-                    int maxWeight = Math.Max(TakeCurrentVal , SkipCurrentVal);
-                    data[i, currweight] = maxWeight;
-                }
-            }
+            return capacity;
         }
-        for (int i = 0; i < data.GetLength(0); i++)
+        return FibRecursion(capacity - 2) + FibRecursion(capacity - 1);
+    }
+    public static int FibonacciMemoization(int capacity)
+    {
+        Dictionary<int, int> memo = new Dictionary<int, int>();
+        if (capacity <= 1)
         {
-            for (int j = 0; j < data.GetLength(1); j++)
-            {
-                Console.Write($"   {data[i, j]}   ");
-            }
-            Console.WriteLine();
+            return capacity;
         }
-        return data[numberOfItems, capacity];
+        //check if the number has already been visited 
+        if (memo.ContainsKey(capacity))
+        {
+            return memo[capacity];
+        }
+        memo[capacity] = FibonacciMemoization(capacity - 2) + FibonacciMemoization(capacity - 1);
+        return memo[capacity];
+    }
+    //other appraoches using loop
+    public static int fibloop1(int n)
+    {
+        //top down approach
+        int[] output = new int[n + 1];
+        output[0] = 0;
+        output[1] = 1;
+
+        for (int i = 2; i <= 7; i++)
+        {
+            output[i] = output[i - 1] + output[i - 2];
+        }
+        return output[n];
+    }
+    public static int fibWithNoExtraSpace(int n)
+    {
+        //0 1 1 2 3 5 8 13
+        int a = 0;
+        int b = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            int current = a + b;
+            a = b;
+            b = current;
+
+        }
+        return b;
     }
 }
 
@@ -53,14 +64,14 @@ public class Program
 {
     public static void Main()
     {
-        int[] weights = { 2, 3, 4 };
-        int[] values = { 3, 4, 5 };
-        int capacity = 5;
-        var ans = Solution.SolveKnapsack(weights, values, capacity);
+        //int[] weights = { 2, 3, 4 };
+        //int[] values = { 3, 4, 5 };
+        int capacity = 7;
+        var ans = Solution.fibWithNoExtraSpace(capacity);
 
 
 
-        Console.WriteLine("Printed Grid");
+        Console.WriteLine(ans);
 
     }
 }
