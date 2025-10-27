@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "leetcode intermediate", "le
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{357FA014-1915-4990-8ED8-CF2ED2D34192}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model2", "Model2\Model2.csproj", "{F178A2A9-60A9-4505-8A05-626A15943323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{9F133167-1667-471A-890C-AD74E08EF2DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{357FA014-1915-4990-8ED8-CF2ED2D34192}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{357FA014-1915-4990-8ED8-CF2ED2D34192}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{357FA014-1915-4990-8ED8-CF2ED2D34192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F178A2A9-60A9-4505-8A05-626A15943323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F178A2A9-60A9-4505-8A05-626A15943323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F178A2A9-60A9-4505-8A05-626A15943323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F178A2A9-60A9-4505-8A05-626A15943323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F133167-1667-471A-890C-AD74E08EF2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F133167-1667-471A-890C-AD74E08EF2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F133167-1667-471A-890C-AD74E08EF2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F133167-1667-471A-890C-AD74E08EF2DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
